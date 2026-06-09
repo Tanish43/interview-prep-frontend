@@ -32,12 +32,17 @@ export default function Login() {
     setLoading(false);
 
     if (!response?.error) {
-      localStorage.setItem("user", JSON.stringify(response));
+      localStorage.setItem(
+        "auth",
+        JSON.stringify({
+          token: response.token,
+        }),
+      );
 
-      router.push("/");
+      router.push("/dashboard");
       return;
     }
-
+    //TODO: use toast message
     alert(response?.errorResp?.message || "Login Failed");
   };
 

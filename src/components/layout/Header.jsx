@@ -3,6 +3,7 @@
 import Link from "next/link";
 
 export default function Header() {
+  const { logout } = useAuth();
   return (
     <header className="border-b">
       <div className="container mx-auto px-6 py-4 flex justify-between">
@@ -14,6 +15,8 @@ export default function Header() {
           <Link href="/login">Login</Link>
 
           <Link href="/signup">Signup</Link>
+
+          <button onClick={logout}>Logout</button>
         </div>
       </div>
     </header>
